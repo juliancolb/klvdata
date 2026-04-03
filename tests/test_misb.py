@@ -22,8 +22,11 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 
 import unittest
+from pathlib import Path
 
 from klvdata.common import bytes_to_hexstr
+
+_DATA_DIR = Path(__file__).parent / "data"
 
 
 class ParserSingleShort(unittest.TestCase):
@@ -50,7 +53,7 @@ class ParserSingleShort(unittest.TestCase):
         # Annex C for "Dynamic and Constant" MISMMS Packet Data.  Sample data from MISB ST 0902.5
         klv = bytes()
 
-        with open('./data/DynamicConstantMISMMSPacketData.bin', 'rb') as f:
+        with open(_DATA_DIR / 'DynamicConstantMISMMSPacketData.bin', 'rb') as f:
             klv = f.read()
 
         key = klv[0:16]

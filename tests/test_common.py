@@ -23,6 +23,9 @@
 # SOFTWARE.
 
 import unittest
+from pathlib import Path
+
+_DATA_DIR = Path(__file__).parent / "data"
 
 
 class DateTime(unittest.TestCase):
@@ -205,7 +208,7 @@ class Checksum(unittest.TestCase):
         # because there was an error in ST 0902.5 example such that checksum would
         # not validate as written. DynamicConstantMISMMSPacketData included in the
         # samples directory of this module's test is patched to correct the value.
-        with open('./data/DynamicOnlyMISMMSPacketData.bin', 'rb') as f:
+        with open(_DATA_DIR / 'DynamicOnlyMISMMSPacketData.bin', 'rb') as f:
             packet = f.read()
 
         from klvdata.common import packet_checksum
@@ -214,7 +217,7 @@ class Checksum(unittest.TestCase):
     def test_basic2(self):
         # Sample data from MISB ST 0902.5. DynamicConstantMISMMSPacketData is patched
         # to obtain correct checksum.
-        with open('./data/DynamicConstantMISMMSPacketData.bin', 'rb') as f:
+        with open(_DATA_DIR / 'DynamicConstantMISMMSPacketData.bin', 'rb') as f:
             packet = f.read()
 
         from klvdata.common import packet_checksum

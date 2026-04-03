@@ -115,3 +115,5 @@ ENV/
 /pprint_packet.py
 /pprint_stdin.py
 /pprint_metadata_values.py
+
+.claude/
